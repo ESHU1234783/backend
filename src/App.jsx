@@ -1,7 +1,13 @@
-import AppRoutes from "./routes/AppRoutes";
+import { Route, Routes } from "react-router-dom";
+import ResumeTemplate from "./pages/ResumeTemplate";
+
 
 function App() {
-  return <AppRoutes />;
+  return (
+      <Routes>
+        <Route path="/" element={<ResumeTemplate />} />
+      </Routes>
+      )
 }
 
 export default App;
