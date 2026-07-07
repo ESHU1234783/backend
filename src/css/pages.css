@@ -1,0 +1,226 @@
+/* =====================================================
+   PAGE LAYOUT
+===================================================== */
+.page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.page-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page-section {
+    margin-top: 24px;
+}
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+.page-header {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.page-description {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.section-subtitle {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+/* =====================================================
+   GRID
+===================================================== */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* =====================================================
+   FLEX HELPERS
+===================================================== */
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-start {
+    display: flex;
+    align-items: flex-start;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* =====================================================
+   CONTENT WRAPPER
+===================================================== */
+.content-wrapper {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* =====================================================
+   PAGE ACTIONS
+===================================================== */
+.page-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.page-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+.empty-state {
+    width: 100%;
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.empty-state h3 {
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    max-width: 500px;
+    margin: auto;
+}
+
+/* =====================================================
+   BADGES
+===================================================== */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-success {
+    background: #ECFDF3;
+    color: #16A34A;
+}
+
+.badge-primary {
+    background: #EAF5FB;
+    color: var(--primary);
+}
+
+.badge-warning {
+    background: #FFF7ED;
+    color: #EA580C;
+}
+
+.badge-danger {
+    background: #FEF2F2;
+    color: #DC2626;
+}
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+.divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 24px 0;
+}
+
+/* =====================================================
+   TABLE WRAPPER
+===================================================== */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* =====================================================
+   SCROLL AREA
+===================================================== */
+.scroll-area {
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+/* =====================================================
+   PAGE FOOTER
+===================================================== */
+.page-footer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+}
