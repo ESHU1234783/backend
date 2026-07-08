@@ -102,3 +102,54 @@ Instructions:
 10. Do not add headings or explanations.
 `;
 };
+
+/**
+ * Generate ATS-friendly technical skills suggestions.
+ *
+ * @param {string} role
+ * @param {string|Array} currentSkills
+ * @param {string|Array} projects
+ * @returns {string}
+ */
+export const skillsPrompt = (
+    role = "Full Stack Developer",
+    currentSkills = ["React", "Node.js"],
+    projects = ["AI Resume Builder"]
+) => {
+
+    const formattedSkills = Array.isArray(currentSkills) ?
+        currentSkills.join(", ") :
+        currentSkills;
+
+    const formattedProjects = Array.isArray(projects) ?
+        projects.map((project) => `- ${project}`).join("\n") :
+        projects;
+
+    return `
+You are an expert Resume Writer and ATS Resume Optimization Specialist.
+
+Your task is to suggest relevant technical skills for the candidate based on the provided role, existing skills, and projects.
+
+Candidate Details
+
+Role:
+${role}
+
+Current Skills:
+${formattedSkills}
+
+Projects:
+${formattedProjects}
+
+Instructions:
+
+1. Suggest only technical skills relevant to the candidate's role.
+2. Include programming languages, frameworks, databases, tools, cloud platforms, and version control technologies where appropriate.
+3. Do NOT repeat skills already listed.
+4. Do NOT suggest unrelated technologies.
+5. Prioritize ATS-friendly and industry-standard keywords.
+6. Suggest between 8 and 12 skills.
+7. Return ONLY a comma-separated list of skills.
+8. Do not add headings, numbering, explanations, or markdown.
+`;
+};

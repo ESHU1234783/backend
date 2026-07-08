@@ -2,6 +2,7 @@ import ai from "../config/gemini.js";
 import {
     resumeSummaryPrompt,
     accomplishmentPrompt,
+    skillsPrompt,
 } from "../utils/prompts.js";
 
 /**
@@ -89,5 +90,29 @@ export const generateContent = async(prompt) => {
         console.error("Gemini Service Error:", error);
 
         throw new Error(error.message || "Failed to generate AI content.");
+    }
+};
+//skillsPrompt
+export const generateSkills = async(resumeData) => {
+    try {
+
+        const prompt = skillsPrompt(resumeData);
+
+        const response = await ai.models.generateContent({
+            model: "gemini-2.5-flash",
+            contents: prompt,
+        });
+
+        const skills = response.text;
+
+        if (!skills) {
+            throw new Error("No skills generated.");
+        }
+
+        return skills.trim();
+
+    } catch (error) {
+        console.error("Skills Generation Error:", error);
+        throw new Error(error.message || "Failed to generate skills.");
     }
 };

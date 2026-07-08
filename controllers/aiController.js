@@ -1,6 +1,7 @@
 import {
     generateResumeSummary,
     generateAccomplishments,
+    generateSkills,
 } from "../services/geminiService.js";
 
 // Resume Summary Controller
@@ -58,6 +59,39 @@ export const improveAccomplishments = async(req, res) => {
         return res.status(500).json({
             success: false,
             message: error.message || "Failed to improve accomplishments.",
+        });
+    }
+};
+// suggestSkills Controller
+
+export const suggestSkills = async(req, res) => {
+    try {
+
+        const resumeData = req.body;
+
+        // Basic Validation
+        if (!resumeData || !resumeData.role) {
+            return res.status(400).json({
+                success: false,
+                message: "Role is required.",
+            });
+        }
+
+        // Generate Skills
+        const skills = await generateSkills(resumeData);
+
+        return res.status(200).json({
+            success: true,
+            skills,
+        });
+
+    } catch (error) {
+
+        console.error("Skills Generation Error:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: error.message || "Failed to generate skills.",
         });
     }
 };
