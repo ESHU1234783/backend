@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-
 import templateImage from "../assets/images/template.png"; // Resume preview image
 
 export default function ResumeTemplate() {

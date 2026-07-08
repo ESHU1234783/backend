@@ -47,7 +47,6 @@ function App() {
     </DefaultLayout>
 
   );
-
 }
 
 export default App;
