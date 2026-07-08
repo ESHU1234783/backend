@@ -1,9 +1,4 @@
 /* =====================================================
-   GOOGLE FONT
-===================================================== */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-
-/* =====================================================
    RESET
 ===================================================== */
 *,
@@ -12,6 +7,11 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 20px;
+   letter-spacing: 0%;
+   vertical-align: middle;
 }
 
 html {
@@ -19,7 +19,7 @@ html {
 }
 
 body {
-   font-family: "Inter", sans-serif;
+   font-family: "poppin", sans-serif;
    background: var(--background);
    color: var(--text);
    overflow-x: hidden;
@@ -93,7 +93,7 @@ button {
 .layout {
    display: flex;
    min-height: 100dvh;
-   background: var(--background);
+   background: #F9FDFF;
 }
 
 .main-content {
@@ -126,8 +126,10 @@ h1 {
 }
 
 h2 {
-   font-size: 28px;
-   font-weight: 700;
+   font-size: 14px;
+   font-weight: 600;
+   line-height: 24px;
+   letter-spacing: 0%;
 }
 
 h3 {
