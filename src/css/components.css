@@ -5,16 +5,19 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: var(--sidebar-width);
+    width: 277px;
     height: 100dvh;
-    background: var(--white);
+    background: #FFFFFF;
     border-right: 1px solid var(--border);
+    /* Figma Shadow */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 18px;
     z-index: 1000;
     transition: .3s ease;
+    border-radius: 8px;
 }
 
 .sidebar-top {
@@ -38,9 +41,8 @@
 }
 
 .sidebar-logo img {
-    width: auto;
-    /* Figma ke hisaab se adjust kar lena */
-    height: auto;
+    width: 132.13px;
+    height: 64px;
     object-fit: contain;
     margin-right: 20px;
 }
@@ -84,8 +86,8 @@
 }
 
 .menu-item {
-    width: 100%;
-    height: 46px;
+    width: 247px;
+    height: 36px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -93,6 +95,7 @@
     border-radius: 10px;
     color: var(--text);
     transition: .25s;
+    border-radius: 4px;
 }
 
 .menu-left {
@@ -110,7 +113,7 @@
 }
 
 .menu-item.active {
-    background: var(--primary);
+    background: #006894;
     color: #fff;
 }
 
@@ -130,7 +133,7 @@
 .submenu-item {
     display: flex;
     align-items: center;
-    height: 38px;
+    height: 24px;
     padding: 0 14px;
     margin: 2px 0;
     border-radius: 8px;
@@ -140,14 +143,20 @@
 }
 
 .submenu-item:hover {
-    color: var(--primary);
-    background: #F5F9FD;
+    background: #B6B6B6;
+    color: #555555;
+    font-weight: 500;
+    width: 181px;
+    height: 24px;
+    border-radius: 8px;
 }
 
 .submenu-item.active {
-    background: #EEF5FB;
-    color: var(--primary);
-    font-weight: 600;
+    background: #B6B6B6;
+    color: #555555;
+    font-weight: 500;
+    width: 181px;
+    height: 24px;
     border-radius: 8px;
 }
 
@@ -159,14 +168,20 @@
 }
 
 .sidebar-profile {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 12px;
+    width: 266px;
+    height: 67.43px;
+    background: #F7F7F9;
+    border: 2px #FFFFFF;
+    border-radius: 8px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-right: 16px;
+    padding-left: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
+    margin-left: -13px;
+    /* cursor: pointer; */
     transition: .25s;
 }
 
@@ -194,27 +209,80 @@
 }
 
 .profile-name {
+    width: 41px;
+    height: 24px;
     display: flex;
     align-items: center;
     gap: 8px;
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: -1%;
+    color: #000000;
 }
 
 .profile-badge {
-    padding: 2px 8px;
-    background: #EAF5FB;
-    color: var(--primary);
-    border-radius: 20px;
-    font-size: 10px;
-    font-weight: 700;
+    display: inline-flex;
+    width: 27px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    border: 0.75px;
+    padding: 3px 4.5px 3px 4.5px; 
+    margin-left: 6px;
+
+    font-size: 9px;
+    font-weight: 500;
+    color: #006894;
+    line-height: 100%;
+    letter-spacing: -1%;
+
+    background: linear-gradient(135deg,
+            #CCDDF9 50%,
+            #C1B7FF 100%);
+
+    border-radius: 4.5px;
 }
 
 .profile-progress {
     display: flex;
+    align-items: center;
+    gap: 5px;
     justify-content: space-between;
-    font-size: 12px;
-    color: var(--text-light);
+    font-size: 11px;
+    color: #1E1E1E;
+    line-height: 100%;
+    letter-spacing: -1%;
+    text-decoration: underline;
+    text-wrap-style: solid;
+    offset: 0%;
+    text-decoration-thickness: 0%;
+    text-decoration-skip-ink: True;
+}
+
+.profile-progress span {
+    width: 26px;
+    height: 15.89px;
+    border: 0.72px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2px 8px;
+    margin-left: 6px;
+
+    font-size: 8.67px;
+    font-weight: 600;
+    color: #1E1E1E;
+    line-height: 100%;
+    letter-spacing: -1%;
+
+    background: linear-gradient(135deg,
+            #CCDDF9 50%,
+            #C1B7FF 100%);
+    border: 0.72px solid #D1D5DB;
+
+    border-radius: 4.33px;
 }
 
 .profile-toggle {
@@ -259,13 +327,20 @@
    TOPBAR
 ===================================================== */
 .topbar {
-    height: var(--topbar-height);
-    background: #fff;
+    height: 80px;
+    width: auto;
+    top: 20px;
+    left: 329px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     gap: 18px;
     padding: 0 28px;
+   margin: 10px 10px 1px 55px;
+    border-radius: 8px;
+
 }
 
 .mobile-menu-btn {
@@ -295,6 +370,7 @@
     gap: 10px;
     transition: .25s;
     font-weight: 600;
+    font-size: 14px;
 }
 
 .btn-primary {
