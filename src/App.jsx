@@ -45,12 +45,6 @@ function App() {
           element={<ResumeStart />}
         />
 
-
-        <Route
-          path="/"
-          element={<ResumeTemplate />}
-        />
-
         <Route
           path="/resume-builder/personal-info"
           element={<Personal />}

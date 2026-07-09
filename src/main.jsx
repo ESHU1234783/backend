@@ -8,6 +8,7 @@ import "./css/components.css";
 import "./css/pages.css";
 import "./css/resume.css";
 import "./css/responsive.css";
+import "./css/Personal.css";
 
 import App from "./App.jsx";
 

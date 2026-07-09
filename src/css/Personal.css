@@ -29,39 +29,6 @@
     margin: 0 auto;
 }
 
-/* ==========================================
-   Resume Builder Header
-========================================== */
-
-.resume-builder-header {
-    width: 100%;
-    height: 80px;
-    background: #FFFFFF;
-    border-radius: 8px;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
-
-    display: flex;
-    align-items: center;
-
-    padding: 0 32px;
-
-    margin-bottom: 24px;
-}
-
-
-/* ==========================================
-   Resume Builder Title
-========================================== */
-
-.builder-title {
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0;
-    color: #1E1E1E;
-}
-
 /* Step Section */
 
 .step-header {
@@ -648,7 +615,7 @@
 
 .resume-summary-text {
 
-    width: 476px;
+    width: 426px;
     height: 72px;
     opacity: 1;
 
