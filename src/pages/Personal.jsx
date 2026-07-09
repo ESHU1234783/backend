@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import aiIcon from "../assets/SVG.png";
 import redoIcon from "../assets/uil_redo.png";
 
@@ -14,6 +15,12 @@ const Personal = () => {
             "Product designer with 8+ years shipping consumer and B2B SaaS products. I lead cross-functional design at scale, partnering with engineering and research to turn ambiguity into clear, beautiful experiences."
     });
 
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        navigate("/resume-builder/start");
+    };
+    
     const [showImproveAI, setShowImproveAI] = useState(true);
     const [leftButton, setLeftButton] = useState("");
     const [originalSummary, setOriginalSummary] = useState("");
@@ -239,14 +246,16 @@ const Personal = () => {
                         <div className="form-footer">
 
                             {/* Back Button */}
-                            <button type="button" className="back-btn">
-
+                            <button
+                                type="button"
+                                className="back-btn"
+                                onClick={handleBack}
+                            >
                                 <span className="back-icon">&#8249;</span>
 
                                 <span className="back-text">
                                     Back
                                 </span>
-
                             </button>
 
                             {/* Save & Continue Button */}
