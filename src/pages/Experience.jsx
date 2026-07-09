@@ -117,16 +117,7 @@ const Experience = () => {
 
     return (
         <main className="personal-page">
-            {/* Main content wrapper */}
-            <div className="personal-content">
-
-                {/* Resume Builder Header */}
-                <ResumeHeader
-                    step="STEP 2 OF 8"
-                    title="Experience"
-                />
-
-                {/* Main layout */}
+ {/* Main layout */}
                 <section className="personal-layout">
 
                     {/* Left form card */}
@@ -427,8 +418,6 @@ const Experience = () => {
                     </div>
 
                 </section>
-
-            </div>
         </main>
     );
 };

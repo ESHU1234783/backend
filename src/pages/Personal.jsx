@@ -61,16 +61,7 @@ const Personal = () => {
 
     return (
         <main className="personal-page">
-            {/* Main content wrapper */}
-            <div className="personal-content">
-
-                {/* Resume Builder Header */}
-                <ResumeHeader
-                    step="STEP 1 OF 8"
-                    title="Personal Details"
-                />
-
-                {/* Main layout */}
+                          {/* Main layout */}
                 <section className="personal-layout">
 
                     {/* Left form card */}
@@ -373,8 +364,6 @@ const Personal = () => {
                     </div>
 
                 </section>
-
-            </div>
         </main>
     );
 };
