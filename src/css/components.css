@@ -132,32 +132,33 @@
 
 .submenu-item {
     display: flex;
+    width: 181px;
     align-items: center;
     height: 24px;
     padding: 0 14px;
     margin: 2px 0;
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 4px;
+    font-size: 12px;
     color: var(--text-light);
     transition: var(--transition);
 }
 
 .submenu-item:hover {
-    background: #B6B6B6;
+    background: #B6B6B640;
     color: #555555;
     font-weight: 500;
     width: 181px;
     height: 24px;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 .submenu-item.active {
-    background: #B6B6B6;
+    background: #B6B6B640;
     color: #555555;
     font-weight: 500;
     width: 181px;
     height: 24px;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 /* =====================================================
