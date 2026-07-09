@@ -6,6 +6,9 @@ import ResumeTemplate from "./pages/ResumeTemplate";
 
 import ResumeStart from "./pages/ResumeStart";
 
+import Personal from "./pages/Personal";
+
+
 function App() {
 
   return (
@@ -40,6 +43,11 @@ function App() {
         <Route
           path="/resume-builder/start"
           element={<ResumeStart />}
+        />
+
+        <Route
+          path="/resume-builder/personal-info"
+          element={<Personal />}
         />
 
       </Routes>

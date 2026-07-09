@@ -1,4 +1,5 @@
-import { FiPlus, FiUploadCloud } from "react-icons/fi";
+import { FiPlusCircle, FiUploadCloud } from "react-icons/fi";
+import { LuFileUp } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 
 function ResumeStart() {
@@ -44,7 +45,7 @@ function ResumeStart() {
 
                     <div className="start-icon">
 
-                        <FiPlus />
+                        <FiPlusCircle size={20} color="#5A5A5A" />
 
                     </div>
 
@@ -78,7 +79,7 @@ function ResumeStart() {
 
                     <div className="start-icon">
 
-                        <FiUploadCloud />
+                        <LuFileUp size={18} color="#FFFFFF" />
 
                     </div>
 

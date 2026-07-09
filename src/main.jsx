@@ -8,10 +8,16 @@ import "./css/components.css";
 import "./css/pages.css";
 import "./css/resume.css";
 import "./css/responsive.css";
+import "./css/Personal.css";
 
 import App from "./App.jsx";
 
-createRoot(document.getElementById("root")).render(
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+  rel="stylesheet"></link>
+
+  createRoot(document.getElementById("root")).render(
+
   <StrictMode>
     <BrowserRouter>
       <App />
