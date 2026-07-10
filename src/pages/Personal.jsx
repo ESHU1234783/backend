@@ -1,26 +1,23 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ResumeContext } from "../context/ResumeContext";
 import { useNavigate } from "react-router-dom";
+
 import aiIcon from "../assets/SVG.png";
 import redoIcon from "../assets/uil_redo.png";
+import ResumeHeader from "../components/ResumeHeader";
+import FormFooter from "../components/FormFooter";
+import AIButton from "../components/AIButton";
 
 const Personal = () => {
-    const [formData, setFormData] = useState({
-        fullName: "Alex Morgan",
-        jobTitle: "Senior Product Designer",
-        email: "alex@morgan.design",
-        phone: "+1 (415) 555-0142",
-        location: "San Francisco, CA",
-        portfolio: "morgan.design",
-        summary:
-            "Product designer with 8+ years shipping consumer and B2B SaaS products. I lead cross-functional design at scale, partnering with engineering and research to turn ambiguity into clear, beautiful experiences."
-    });
-
     const navigate = useNavigate();
+    const { personalData, setPersonalData } = useContext(ResumeContext);
+    const formData = personalData;
+    const setFormData = setPersonalData;
 
     const handleBack = () => {
-        navigate("/resume-builder/start");
+        navigate("/start");
     };
-    
+
     const [showImproveAI, setShowImproveAI] = useState(true);
     const [leftButton, setLeftButton] = useState("");
     const [originalSummary, setOriginalSummary] = useState("");
@@ -68,6 +65,7 @@ const Personal = () => {
 
     return (
         <main className="personal-page">
+
             {/* Main content wrapper */}
             <div className="personal-content">
 
@@ -77,7 +75,10 @@ const Personal = () => {
                     <h2 className="page-title">Personal Details</h2>
                 </section>
 
+
+
                 {/* Main layout */}
+
                 <section className="personal-layout">
 
                     {/* Left form card */}
@@ -191,95 +192,27 @@ const Personal = () => {
                             </div>
 
                             {/* Improve with AI */}
-                            <div
-                                className="ai-section"
-                                style={{
-                                    justifyContent:
-                                        leftButton === ""
-                                            ? "flex-end"
-                                            : leftButton === "Keep Original"
-                                                ? "space-between"
-                                                : "flex-start",
-                                }}
-                            >
-
-                                {/* Left Button */}
-                                {leftButton !== "" && (
-                                    <span
-                                        className="ai-improve"
-                                        onClick={
-                                            leftButton === "Keep Original"
-                                                ? handleKeepOriginal
-                                                : handleKeepImproved
-                                        }
-                                    >
-                                        <img
-                                            src={redoIcon}
-                                            alt="Redo"
-                                            className="keep-icon"
-                                        />
-
-                                        <span>{leftButton}</span>
-                                    </span>
-                                )}
-
-                                {/* Right Button */}
-                                {showImproveAI && (
-                                    <span
-                                        className="ai-improve"
-                                        onClick={handleImproveSummary}
-                                    >
-                                        <img
-                                            src={aiIcon}
-                                            alt="AI"
-                                            className="ai-icon"
-                                        />
-                                        <span>Improve with AI</span>
-                                    </span>
-                                )}
-
-                            </div>
+                            <AIButton
+                                leftButton={leftButton}
+                                showImproveAI={showImproveAI}
+                                handleImproveSummary={handleImproveSummary}
+                                handleKeepOriginal={handleKeepOriginal}
+                                handleKeepImproved={handleKeepImproved}
+                            />
 
                         </div>
 
                         {/* Form Footer */}
-                        <div className="form-footer">
 
-                            {/* Back Button */}
-                            <button
-                                type="button"
-                                className="back-btn"
-                                onClick={handleBack}
-                            >
-                                <span className="back-icon">&#8249;</span>
+                        <FormFooter
+                            onBack={() => navigate(-1)}
+                            onContinue={() => navigate("/experience")}
+                        />
 
-                                <span className="back-text">
-                                    Back
-                                </span>
-                            </button>
-
-                            {/* Save & Continue Button */}
-                            <button
-                                type="button"
-                                className="continue-btn"
-                            >
-
-                                <span className="continue-text">
-                                    Save & Continue
-                                </span>
-
-                                <span className="continue-icon">
-                                    &#8250;
-                                </span>
-
-                            </button>
-
-                        </div>
-
-                    </div>
+                    </div >
 
                     {/* Right Preview */}
-                    <div className="preview-card">
+                    < div className="preview-card" >
 
                         <div className="resume-preview">
 
@@ -447,12 +380,11 @@ const Personal = () => {
 
                         </div>
 
-                    </div>
+                    </div >
 
-                </section>
-
+                </section >
             </div>
-        </main>
+        </main >
     );
 };
 

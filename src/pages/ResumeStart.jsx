@@ -7,7 +7,7 @@ function ResumeStart() {
     const navigate = useNavigate();
 
     const handleCreateResume = () => {
-        navigate("/resume-builder/personal-info");
+        navigate("/personal");
 
     };
 

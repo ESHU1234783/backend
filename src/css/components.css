@@ -309,7 +309,7 @@
 /* Remove fixed positioning and left offset. Let it flow inside main-content */
 .topbar {
     height: 80px;
-    width: 100%;                /* take full width of its container */
+    width: auto;                    /* take full width of its container */
     background: #FFFFFF;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
     border-bottom: 1px solid var(--border);
@@ -317,9 +317,9 @@
     align-items: center;
     gap: 18px;
     padding: 0 28px;
-    margin: 10px 0 1px 0;      /* spacing around topbar, no left margin needed */
+    margin: 10px 20px 1px 0;     
     border-radius: 8px;
-    box-sizing: border-box;     /* ensure padding doesn't overflow */
+    box-sizing: border-box;      
 }
 
 .mobile-menu-btn {

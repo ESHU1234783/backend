@@ -27,7 +27,7 @@ export const menuData = [
             {
                 id: 2,
                 title: "My Resume",
-                path: "/resume-builder/my-resume",
+                path: "/my-resume",
             },
 
         ],
