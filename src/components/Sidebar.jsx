@@ -134,7 +134,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
                                                                     } else if (child.title === "My Resume") {
 
                                                                         isChildActive =
-                                                                            location.pathname === "/resume-builder/my-resume";
+                                                                            location.pathname === "/my-resume";
 
                                                                     }
 

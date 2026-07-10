@@ -43,7 +43,7 @@ export default function MyResume() {
                     {/* Create Card */}
                     <div
                         className="create-card"
-                        onClick={() => navigate("/resume-builder/start")}
+                        onClick={() => navigate("/start")}
                     >
                         <div className="plus-circle">
                             <FiPlus className="plus-icon" />
