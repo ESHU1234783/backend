@@ -20,49 +20,6 @@
     padding: 40px;
 }
 
-/* ==========================================
-   Content Wrapper
-========================================== */
-
-.personal-content {
-    max-width: 1220px;
-    margin: 0 auto;
-}
-
-/* Step Section */
-
-.step-header {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-/* ==========================================
-   Step Count
-========================================== */
-
-.step-count {
-    font-family: "Poppins", sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    color: #006894;
-}
-
-/* ==========================================
-   Page Title
-========================================== */
-
-.page-title {
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0;
-    color: #1E1E1E;
-}
 
 /* ==========================================
    Main Layout
@@ -70,8 +27,49 @@
 
 .personal-layout {
     display: flex;
+    justify-content: center;
     align-items: flex-start;
-    gap: 28px;
+    gap: 24px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 40px auto;
+}
+
+
+/* ==========================================
+   Left Section
+========================================== */
+
+.left-section{
+    flex:1;
+    max-width:627px;
+    display:flex;
+    flex-direction:column;
+}
+/* ==========================================
+   Page Heading
+========================================== */
+
+.page-heading {
+    margin-bottom: 18px;
+}
+
+.step-text {
+    display: block;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0B7FC1;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.page-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
 }
 
 /* ==========================================
@@ -79,14 +77,14 @@
 ========================================== */
 
 .form-card {
-    width: 627px;
-    max-width: 672px;
+    width:100%;
+    max-width:627px;
 
     background: #FFFFFF;
 
     border-radius: 20px;
 
-    padding: 32px 32px 32px 32px;
+    padding: 32px;
 
     display: flex;
     flex-direction: column;
@@ -94,16 +92,18 @@
     box-shadow: 0px 12px 40px rgba(11, 21, 44, 0.10);
 }
 
+
+
 /* ==========================================
    Right Resume Preview
 ========================================== */
-
 .preview-card {
     width: 556px;
-    min-height: 785px;
-    background: #FFFFFF;
-    border-radius: 20px;
-    box-shadow: 0px 12px 40px rgba(11, 21, 44, 0.10);
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+
+    margin-top: 81px;
 }
 
 /* ==========================================
@@ -112,22 +112,15 @@
 
 .form-container {
     width: 100%;
-
-    background: #FFFFFF;
-
-    border: 1px solid rgba(181, 181, 181, .5);
-    border-radius: 16px;
-
-    padding: 24px 24px 12px 24px;
-
+    padding: 0;
     display: flex;
     flex-direction: column;
-
     gap: 18px;
 
-    box-shadow:
-        0px 4px 16px rgba(11, 21, 44, .06),
-        0px 1px 2px rgba(11, 21, 44, .04);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 /* ==========================================
@@ -216,8 +209,6 @@
 }
 
 
-
-
 /* ==========================================
    Summary Header
 ========================================== */
@@ -247,17 +238,17 @@
 ========================================== */
 
 .summary-textarea {
-    width: 512.5px;
-    height: 192px;
+    width: 100%;
 
-    padding: 22px 24px;
+    /* Height badhao */
+    min-height: 190px;
+
+    padding: 22px 24px 24px 24px;
+    /* Top Right Bottom Left */
 
     background: #F9F9F9;
-
     border: 0.5px solid #B6B6B680;
     border-radius: 16px;
-
-    vertical-align: top;
 
     resize: none;
     outline: none;
@@ -266,27 +257,11 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
-    letter-spacing: 0;
 
     color: #1E1E1E;
+    box-sizing: border-box;
 }
 
-.summary-textarea:focus {
-    border: 0.5px solid #B6B6B680;
-    outline: none;
-    box-shadow: none;
-}
-
-/* Placeholder */
-
-.summary-textarea {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0;
-    color: #1E1E1E;
-}
 
 /* ==========================================
    Improve With AI Section
@@ -373,12 +348,12 @@
 ========================================== */
 
 .form-footer {
-    width: 100%;
+    width: 627px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    margin-top: 18px;
+    margin-top: 24px;
 
     padding: 0;
 }
@@ -505,12 +480,20 @@
    Resume Preview
 ========================== */
 .preview-card {
-    padding: 40px;
+    padding: 0;
 }
 
 .resume-preview {
-    width: 476px;
-    margin: 0 auto;
+    width: 556px;
+    min-height: 785px;
+
+    margin: 0;
+
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 12px 40px rgba(11, 21, 44, .10);
+
+    padding: 40px;
 }
 
 /* Name */
@@ -543,18 +526,28 @@
 .resume-contact-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    align-items: center;
+    gap: 8px;
 
     margin-top: 10px;
 
     font-family: "Poppins", sans-serif;
     font-size: 10px;
     font-weight: 400;
-    line-height: 16.25px;
+    line-height: 16px;
+    letter-spacing: 0;
 
     color: #62748E;
 }
 
+
+.resume-contact-row span {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 16px;
+    color: #62748E;
+}
 /* Portfolio */
 
 .resume-portfolio {
@@ -737,7 +730,7 @@
     margin: 0;
 
     font-family: "Poppins", sans-serif;
-    font-size: 10.5px;
+    font-size: 9.8px;
     font-weight: 400;
     line-height: 17px;
     color: #314158;

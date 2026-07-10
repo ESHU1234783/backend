@@ -9,6 +9,9 @@ import ResumeStart from "./pages/ResumeStart";
 import Personal from "./pages/Personal";
 
 import cors from "cors"
+import Experience from "./pages/Experience";
+
+import Education from "./pages/Education";
 
 
 function App() {
@@ -51,6 +54,17 @@ function App() {
           path="/resume-builder/personal-info"
           element={<Personal />}
         />
+
+        <Route
+          path="/resume-builder/experience"
+          element={<Experience />}
+        />
+
+         <Route
+          path="/resume-builder/education"
+          element={<Education />}
+        />
+
 
       </Routes>
 
