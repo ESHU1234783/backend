@@ -1,15 +1,52 @@
 import { FiPlusCircle, FiUploadCloud } from "react-icons/fi";
 import { LuFileUp } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
 function ResumeStart() {
 
     const navigate = useNavigate();
+    const [selectedFile, setSelectedFile] = useState(null);
 
     const handleCreateResume = () => {
         navigate("/personal");
 
     };
+
+    const handleUpload = async (e) => {
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    setSelectedFile(file);
+
+    const formData = new FormData();
+    formData.append("resume", file);
+
+    try {
+        const response = await axios.post(
+            "http://localhost:8000/api/upload-resume",
+            formData,
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            }
+        );
+
+        console.log("Resume Uploaded Successfully");
+        console.log(response.data);
+
+        alert("Resume uploaded successfully!");
+
+    } catch (error) {
+    console.log(error);
+    console.log(error.response);
+    console.log(error.response?.data);
+    alert("Upload failed");
+}
+};
 
     return (
 
@@ -98,9 +135,10 @@ function ResumeStart() {
                     <label className="upload-box">
 
                         <input
-                            type="file"
-                            accept=".pdf,.doc,.docx"
-                            hidden
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        hidden
+                        onChange={handleUpload}
                         />
 
                         <FiUploadCloud />
