@@ -2,11 +2,13 @@ import { useState, useContext } from "react";
 import { ResumeContext } from "../context/ResumeContext";
 import { useNavigate } from "react-router-dom";
 import "../css/Personal.css";
+import "../css/Experience.css";
 import aiIcon from "../assets/SVG.png";
 import redoIcon from "../assets/uil_redo.png";
 import ResumeHeader from "../components/ResumeHeader";
 import FormFooter from "../components/FormFooter";
 import AIButton from "../components/AIButton";
+
 
 const Experience = () => {
     const navigate = useNavigate();
@@ -24,7 +26,11 @@ const Experience = () => {
             end: "Present",
             currentlyWorking: true,
             accomplishments:
-                "• Led redesign of the issue triage flow, cutting time-to-action by 38%.\n• Shipped Linear AI suggestions used by 60% of weekly active teams.\n• Mentored 4 designers and ran the weekly design crit."
+`• Led redesign of the issue triage flow, cutting time-to-action by
+38%.
+• Shipped Linear AI suggestions used by 60% of weekly active
+teams.
+• Mentored 4 designers and ran the weekly design crit.`
         },
 
     ]);
@@ -117,8 +123,23 @@ const Experience = () => {
 
     return (
         <main className="personal-page">
- {/* Main layout */}
-                <section className="personal-layout">
+            {/* Main layout */}
+            <section className="personal-layout">
+                {/* Left Side */}
+                <div className="left-section">
+
+                    {/* Page Heading */}
+                    <div className="page-heading">
+
+                        <span className="step-text">
+                            STEP 2 OF 8
+                        </span>
+
+                        <h2 className="page-title">
+                            EXPERIENCE
+                        </h2>
+
+                    </div>
 
                     {/* Left form card */}
                     <div className="form-card">
@@ -231,8 +252,7 @@ const Experience = () => {
                                             placeholder="Describe your achievements..."
                                         />
 
-                                    </div>
-                                    {/* Yahan Experience ka form aayega */}
+                                          {/* Yahan Experience ka form aayega */}
                                     <AIButton
                                         leftButton={leftButton}
                                         showImproveAI={showImproveAI}
@@ -243,63 +263,66 @@ const Experience = () => {
                                         handleKeepImproved={handleKeepImproved}
                                     />
 
+                                    </div>
                                 </div>
 
                             ))}
 
                         </div>
 
-
-
-                        <div className="add-experience">
-
-                            <button
-                                type="button"
-                                className="add-experience-btn"
-                                onClick={handleAddExperience}
-                            >
-                                + Add Another Experience
-                            </button>
-
-                        </div>
+                    </div>
 
 
 
-                        {/* Form Footer */}
-                        <FormFooter
-                            onBack={() => navigate("/personal")}
-                            onContinue={() => navigate("/education")}
-                        />
+                    <div className="add-experience">
+
+                        <button
+                            type="button"
+                            className="add-experience-btn"
+                            onClick={handleAddExperience}
+                        >
+                            + Add Another Experience
+                        </button>
 
                     </div>
 
-                    {/* Right Preview */}
-                    <div className="preview-card">
 
-                        <div className="resume-preview">
 
-                            {/* Name */}
-                            <h1 className="resume-name">
-                                {formData.fullName}
-                            </h1>
+                    {/* Form Footer */}
+                    <FormFooter
+                        onBack={() => navigate("/resume-builder/personal-info")}
+                        onContinue={() => navigate("/resume-builder/education")}
+                    />
 
-                            <p className="resume-job-title">
-                                {formData.jobTitle}
-                            </p>
+                </div>
 
-                            <div className="resume-contact-row">
-                                <span>{formData.email}</span>
-                                <span>{formData.phone}</span>
-                                <span>{formData.location}</span>
-                            </div>
+                {/* Right Preview */}
+                <div className="preview-card">
 
-                            <div className="resume-portfolio">
-                                {formData.portfolio}
-                            </div>
+                    <div className="resume-preview">
 
-                            <div className="resume-divider"></div>
+                        {/* Name */}
+                        <h1 className="resume-name">
+                            {formData.fullName}
+                        </h1>
 
+                        <p className="resume-job-title">
+                            {formData.jobTitle}
+                        </p>
+
+                        <div className="resume-contact-row">
+                            <span>{formData.email}</span>
+                            <span>{formData.phone}</span>
+                            <span>{formData.location}</span>
                         </div>
+
+                        <div className="resume-portfolio">
+                            {formData.portfolio}
+                        </div>
+
+                        <div className="resume-divider"></div>
+
+
                         {/* Summary Section */}
                         <div className="resume-summary">
 
@@ -414,10 +437,11 @@ const Experience = () => {
                             </div>
 
                         </div>
-
                     </div>
 
-                </section>
+                </div>
+
+            </section>
         </main>
     );
 };
