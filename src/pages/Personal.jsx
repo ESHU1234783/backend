@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import aiIcon from "../assets/SVG.png";
 import redoIcon from "../assets/uil_redo.png";
 
@@ -11,12 +12,13 @@ const Personal = () => {
         location: "San Francisco, CA",
         portfolio: "morgan.design",
         summary:
-            "Product designer with 8+ years shipping consumer and B2B SaaS products. I lead cross-functional design at scale, partnering with engineering and research to turn ambiguity into clear, beautiful experiences."
+            "Product designer with 8+ years shipping consumer and B2B SaaS products. I lead cross-functional design at scale, partnering with engineering and research to turn ambiguity into clear, beautiful experiences.",
     });
 
     const [showImproveAI, setShowImproveAI] = useState(true);
     const [leftButton, setLeftButton] = useState("");
     const [originalSummary, setOriginalSummary] = useState("");
+    const [loading, setLoading] = useState(false);
 
     // Handle form input changes
     const handleChange = (event) => {
@@ -27,34 +29,64 @@ const Personal = () => {
             [name]: value,
         }));
     };
-    const handleImproveSummary = () => {
 
-        setOriginalSummary(formData.summary);
+    // Improve Summary with AI
+    const handleImproveSummary = async () => {
+        try {
+            setLoading(true);
 
-        const improvedSummary =
-            "Results-driven professional with strong communication, problem-solving, and teamwork skills. Passionate about delivering high-quality work, learning new technologies, and contributing effectively to organizational success.";
+            // Save original summary
+            setOriginalSummary(formData.summary);
 
-        setFormData({
-            ...formData,
-            summary: improvedSummary,
-        });
+            const response = await axios.post(
+                "http://localhost:8000/api/ai/generate-summary",
+                {
+                    fullName: formData.fullName,
+                    jobTitle: formData.jobTitle,
+                    email: formData.email,
+                    phone: formData.phone,
+                    location: formData.location,
+                    portfolio: formData.portfolio,
+                    summary: formData.summary,
+                }
+            );
 
-        setShowImproveAI(true);
-        setLeftButton("Keep Original");
+            if (response.data.success) {
+                setFormData((prev) => ({
+                    ...prev,
+                    summary: response.data.summary,
+                }));
+
+                setShowImproveAI(true);
+                setLeftButton("Keep Original");
+            }
+        } catch (error) {
+
+    if (error.response?.status === 503) {
+        alert("AI server is busy. Please try again after a few seconds.");
+    } else {
+        alert(error.response?.data?.message || "Something went wrong.");
+    }
+
+
+        } finally {
+            setLoading(false);
+        }
     };
-    const handleKeepOriginal = () => {
 
-        setFormData({
-            ...formData,
+    // Keep Original
+    const handleKeepOriginal = () => {
+        setFormData((prev) => ({
+            ...prev,
             summary: originalSummary,
-        });
+        }));
 
         setShowImproveAI(false);
         setLeftButton("Keep Improved");
     };
-    const handleKeepImproved = () => {
 
-        // Sab hide ho jayega
+    // Keep Improved
+    const handleKeepImproved = () => {
         setLeftButton("");
         setShowImproveAI(false);
     };
@@ -63,28 +95,23 @@ const Personal = () => {
         <main className="personal-page">
             {/* Main content wrapper */}
             <div className="personal-content">
-
                 {/* Step Information */}
                 <section className="step-header">
                     <span className="step-count">STEP 1 OF 8</span>
                     <h2 className="page-title">Personal Details</h2>
                 </section>
 
-                {/* Main layout */}
+                {/* Main Layout */}
                 <section className="personal-layout">
-
-                    {/* Left form card */}
+                    {/* Left Form Card */}
                     <div className="form-card">
-                        {/* Form container */}
+                        {/* Form Container */}
                         <div className="form-container">
-                            {/* Personal information form */}
+                            {/* Personal Information Form */}
                             <div className="personal-form">
-
-
                                 {/* Full Name */}
                                 <div className="form-group">
                                     <label className="form-label">Full Name</label>
-
                                     <input
                                         type="text"
                                         name="fullName"
@@ -97,7 +124,6 @@ const Personal = () => {
                                 {/* Job Title */}
                                 <div className="form-group">
                                     <label className="form-label">Job Title</label>
-
                                     <input
                                         type="text"
                                         name="jobTitle"
@@ -106,9 +132,10 @@ const Personal = () => {
                                         onChange={handleChange}
                                     />
                                 </div>
+
+                                {/* Email */}
                                 <div className="form-group">
                                     <label className="form-label">Email</label>
-
                                     <input
                                         type="email"
                                         name="email"
@@ -118,10 +145,9 @@ const Personal = () => {
                                     />
                                 </div>
 
-                                {/* Phone Number */}
+                                {/* Phone */}
                                 <div className="form-group">
-                                    <label className="form-label">Phone </label>
-
+                                    <label className="form-label">Phone</label>
                                     <input
                                         type="tel"
                                         name="phone"
@@ -134,7 +160,6 @@ const Personal = () => {
                                 {/* Location */}
                                 <div className="form-group">
                                     <label className="form-label">Location</label>
-
                                     <input
                                         type="text"
                                         name="location"
@@ -147,7 +172,6 @@ const Personal = () => {
                                 {/* Portfolio */}
                                 <div className="form-group">
                                     <label className="form-label">Portfolio</label>
-
                                     <input
                                         type="url"
                                         name="portfolio"
@@ -156,31 +180,26 @@ const Personal = () => {
                                         onChange={handleChange}
                                     />
                                 </div>
-
                             </div>
 
                             {/* Professional Summary */}
                             <div className="summary-section">
-
-                                {/* Summary Header */}
                                 <div className="summary-header">
                                     <label className="form-label">
                                         Professional Summary
                                     </label>
 
                                     <span className="character-count">
-                                        206 chars
+                                        {formData.summary.length} chars
                                     </span>
                                 </div>
 
-                                {/* Professional Summary Input */}
                                 <textarea
                                     className="summary-textarea"
                                     name="summary"
                                     value={formData.summary}
                                     onChange={handleChange}
                                 />
-
                             </div>
 
                             {/* Improve with AI */}
@@ -191,11 +210,10 @@ const Personal = () => {
                                         leftButton === ""
                                             ? "flex-end"
                                             : leftButton === "Keep Original"
-                                                ? "space-between"
-                                                : "flex-start",
+                                            ? "space-between"
+                                            : "flex-start",
                                 }}
                             >
-
                                 {/* Left Button */}
                                 {leftButton !== "" && (
                                     <span
@@ -211,7 +229,6 @@ const Personal = () => {
                                             alt="Redo"
                                             className="keep-icon"
                                         />
-
                                         <span>{leftButton}</span>
                                     </span>
                                 )}
@@ -220,41 +237,35 @@ const Personal = () => {
                                 {showImproveAI && (
                                     <span
                                         className="ai-improve"
-                                        onClick={handleImproveSummary}
+                                        onClick={!loading ? handleImproveSummary : undefined}
+                                        style={{
+                                            cursor: loading ? "not-allowed" : "pointer",
+                                            opacity: loading ? 0.7 : 1,
+                                        }}
                                     >
                                         <img
                                             src={aiIcon}
                                             alt="AI"
                                             className="ai-icon"
                                         />
-                                        <span>Improve with AI</span>
+                                        <span>
+                                            {loading ? "Generating..." : "Improve with AI"}
+                                        </span>
                                     </span>
                                 )}
-
                             </div>
-
-                        </div>
+                        </div> {/* form-container */}
 
                         {/* Form Footer */}
                         <div className="form-footer">
-
                             {/* Back Button */}
                             <button type="button" className="back-btn">
-
                                 <span className="back-icon">&#8249;</span>
-
-                                <span className="back-text">
-                                    Back
-                                </span>
-
+                                <span className="back-text">Back</span>
                             </button>
 
                             {/* Save & Continue Button */}
-                            <button
-                                type="button"
-                                className="continue-btn"
-                            >
-
+                            <button type="button" className="continue-btn">
                                 <span className="continue-text">
                                     Save & Continue
                                 </span>
@@ -262,186 +273,15 @@ const Personal = () => {
                                 <span className="continue-icon">
                                     &#8250;
                                 </span>
-
                             </button>
-
                         </div>
+                    </div> {/* form-card */}
 
-                    </div>
-
-                    {/* Right Preview */}
+                    {/* Right Preview Card */}
                     <div className="preview-card">
-
-                        <div className="resume-preview">
-
-                            {/* Name */}
-                            <h1 className="resume-name">
-                                {formData.fullName}
-                            </h1>
-
-                            {/* Job Title */}
-                            <p className="resume-job-title">
-                                {formData.jobTitle}
-                            </p>
-
-                            {/* Contact Row 1 */}
-                            <div className="resume-contact-row">
-                                <span>{formData.email}</span>
-                                <span>{formData.phone}</span>
-                                <span>{formData.location}</span>
-                            </div>
-
-                            {/* Portfolio */}
-                            <div className="resume-portfolio">
-                                {formData.portfolio}
-                            </div>
-
-                            {/* Purple Divider */}
-                            <div className="resume-divider"></div>
-
-
-                            {/* Summary Section */}
-
-                            <div className="resume-summary">
-
-                                <h3 className="resume-section-title">
-                                    SUMMARY
-                                </h3>
-
-                                <p className="resume-summary-text">
-                                    {formData.summary}
-                                </p>
-
-                            </div>
-
-                            {/* Experience */}
-
-                            <div className="resume-experience">
-
-                                <h3 className="resume-section-title">
-                                    EXPERIENCE
-                                </h3>
-
-                                {/* Experience 1 */}
-
-                                <div className="experience-item">
-
-                                    <div className="experience-header">
-
-                                        <h4>Senior Product Designer</h4>
-
-                                        <span>Mar 2022 – Present</span>
-
-                                    </div>
-
-                                    <p className="company-name">Linear</p>
-                                    <div className="experience-description">
-
-                                        <p>
-                                            Led redesign of the issue triage flow, cutting
-                                            time-to-action by 38%.
-                                        </p>
-
-                                        <p>
-                                            Shipped Linear AI suggestions used by 60% of
-                                            weekly active teams.
-                                        </p>
-
-                                        <p>
-                                            Mentored 4 designers and ran the weekly design
-                                            crit.
-                                        </p>
-                                    </div>
-
-                                </div>
-
-                                {/* Experience 2 */}
-
-                                <div className="experience-item">
-
-                                    <div className="experience-header">
-
-                                        <h4>Product Designer</h4>
-
-                                        <span>2019 – 2022</span>
-
-                                    </div>
-
-                                    <p className="company-name">Notion</p>
-                                    <div className="experience-description">
-
-                                        <p>
-                                            Designed the templates gallery — a top-3
-                                            acquisition surface.
-                                        </p>
-
-                                        <p>
-                                            Partnered with research to define the activation
-                                            north-star metric.
-                                        </p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            {/* Skills */}
-                            <div className="resume-skills">
-
-                                <h3 className="resume-section-title">
-                                    SKILLS
-                                </h3>
-
-                                <div className="skills-list">
-
-                                    <span className="skill-tag">Product Design</span>
-
-                                    <span className="skill-tag">Design Systems</span>
-
-                                    <span className="skill-tag">Prototyping</span>
-
-                                    <span className="skill-tag">User Research</span>
-
-                                    <span className="skill-tag">Figma</span>
-
-                                    <span className="skill-tag">Framer</span>
-
-                                    <span className="skill-tag">Design Ops</span>
-
-                                </div>
-
-                            </div>
-
-                            {/* Education */}
-
-                            <div className="resume-education">
-
-                                <h3 className="resume-section-title">
-                                    EDUCATION
-                                </h3>
-
-                                <div className="education-item">
-
-                                    <div className="education-header">
-
-                                        <h4>B.S.Human-Computer Interaction</h4>
-
-                                        <span>2013 – 2017</span>
-
-                                    </div>
-
-                                    <p className="education-school">
-                                        Carnegie Mellon University
-                                    </p>
-
-                                </div>
-                            </div>
-
-                        </div>
-
+                        {/* Preview content goes here */}
                     </div>
-
                 </section>
-
             </div>
         </main>
     );
