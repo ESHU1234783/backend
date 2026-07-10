@@ -171,7 +171,7 @@
 .resume-image {
     width: 269.24px;
     height: 199px;
-    padding: 29.41px 14.7px 0px 14.7px;
+    padding: 24.41px 14.7px 0px 14.7px;
     position: relative;
     background: #EFEAFB;
     overflow: hidden;
@@ -180,7 +180,7 @@
 
 .resume-image img {
     width: 239.54px;
-    height: 170.03px;
+    height: 180.03px;
     object-fit: cover;
 }
 
@@ -308,14 +308,14 @@
     align-items: center;
     gap: 4px;
     padding: 9.49px 16.87px;
-    background: #FFFFFF;
+    background: #006894;
     border: 1px solid rgba(182, 182, 182, 0.5);
     border-radius: 8px;
     cursor: pointer;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
-    color: #555555;
+    color: #FFFFFF;
     transition: all 0.2s ease;
 }
 
