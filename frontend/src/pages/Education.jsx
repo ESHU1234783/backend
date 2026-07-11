@@ -8,7 +8,8 @@ import redoIcon from "../assets/uil_redo.png";
 import ResumeHeader from "../components/ResumeHeader";
 import FormFooter from "../components/FormFooter";
 import AIButton from "../components/AIButton";
-const { id } = useParams();
+import { useParams } from "react-router-dom";
+
 
 
 const Education = () => {

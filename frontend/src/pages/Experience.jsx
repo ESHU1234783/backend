@@ -9,7 +9,8 @@ import ResumeHeader from "../components/ResumeHeader";
 import FormFooter from "../components/FormFooter";
 import AIButton from "../components/AIButton";
 import experience from "../service/exp.js"
-const { id } = useParams();
+import { useParams } from "react-router-dom";
+
 
 
 const Experience = () => {
