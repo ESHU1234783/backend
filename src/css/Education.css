@@ -1,0 +1,67 @@
+/* ==========================================
+   Add Another Education
+========================================== */
+
+.add-education {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 24px;
+}
+
+.add-education-btn {
+    width: 100%;
+    height: 46px;
+
+    background: transparent;
+
+    border: 0.6px dashed #B6B6B680;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #555555;
+
+    transition: .2s ease;
+}
+
+.add-education-btn:hover {
+    background: #F8FAFC;
+    color: #111827;
+}
+
+.summary-textarea::placeholder{
+    color: #9CA3AF;
+    opacity: 1;
+}
+
+
+.education-field{
+    margin-top:2px;
+
+    font-family:"Poppins",sans-serif;
+    font-size:10px;
+    font-weight:400;
+    color:#45556C;
+}
+
+.education-cgpa{
+    margin-top:2px;
+
+    font-family:"Poppins",sans-serif;
+    font-size:10px;
+    font-weight:500;
+    color:#0F172B;
+}
+
+.education-location{
+    margin-top:2px;
+
+    font-family:"Poppins",sans-serif;
+    font-size:10px;
+    font-weight:400;
+    color:#62748E;
+}
+

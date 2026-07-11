@@ -1,0 +1,618 @@
+/* ========== BASE STYLES (Desktop & Laptop – Fixed Widths Preserved) ========== */
+
+/* .resume-wrapper {
+    margin: 0 10px;
+    padding: 15px 5px 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 100%;
+    width: auto; */
+    /* Let it expand naturally between margins */
+/* } */
+
+.resume-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.resume-top h2 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: -0.24px;
+    vertical-align: middle;
+    margin-left: -2px;
+    color: #1E1E1E;
+}
+
+.resume-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid rgba(182, 182, 182, 0.5);
+    padding: 10px 16px 10px 40px;
+    height: 42px;
+    border-radius: 12px;
+    width: 260px;
+    margin-left: -350px;
+}
+
+.search-icon {
+    font-size: 15px;
+    width: 18px;
+    height: 18px;
+    color: #6B7280;
+    margin-left: -30px;
+    font-weight: 500;
+}
+
+.search-box input {
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    height: 18px;
+    width: 198px;
+    line-height: 100%;
+    letter-spacing: 0.14px;
+    background: transparent;
+}
+
+.sort-icon {
+    width: 18px;
+    height: 19px;
+    margin: 16px -2px 15px 0px;
+    font-weight: 500;
+    color: #555555;
+    vertical-align: middle;
+}
+
+.sort-btn {
+    height: 20px;
+    margin: 8px -16px 15px 0px;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.14px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.resume-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.create-card {
+    width: 271.08px;
+    height: 349.19px;
+    border: 1.84px dashed rgba(182, 182, 182, 0.5);
+    border-radius: 12px;
+    padding-right: 47.14px;
+    padding-left: 47.14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: -3px;
+}
+
+.plus-circle {
+    width: 48.46px;
+    height: 48.46px;
+    border-radius: 9188.3px;
+    background: #0068941A;
+    color: #0B76EF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.plus-icon {
+    width: 25px;
+    height: 25px;
+    color: #006894;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-card h3 {
+    width: 111px;
+    height: 23px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22.05px;
+    letter-spacing: 0px;
+    color: #006894;
+}
+
+.create-card p {
+    width: 155px;
+    height: 23px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22.05px;
+    letter-spacing: 0px;
+    color: #555555;
+}
+
+.resume-card {
+    width: 269.24px;
+    height: 349.19px;
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+    position: relative;
+    overflow: visible;
+    transition: 0.3s;
+}
+
+.resume-image {
+    width: 269.24px;
+    height: 199px;
+    padding: 24.41px 14.7px 0px 14.7px;
+    position: relative;
+    background: #EFEAFB;
+    overflow: hidden;
+    border-radius: 14px 14px 0 0;
+}
+
+.resume-image img {
+    width: 239.54px;
+    height: 180.03px;
+    object-fit: cover;
+}
+
+.optimized {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 4px 8px;
+    min-width: 89px;
+    height: 21px;
+    background: #006894;
+    color: #FFFFFF;
+    border-radius: 4px;
+    font-size: 9.19px;
+    font-weight: 700;
+    line-height: 13.78px;
+    white-space: nowrap;
+}
+
+.optimized-icon {
+    font-size: 10px;
+    flex-shrink: 0;
+}
+
+/* Merged & refined .draft (removed duplicate) */
+.draft {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 8px;
+    background: #F5F5F5;
+    color: #555555;
+    border-radius: 4px;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+}
+
+.resume-body {
+    padding: 16px;
+}
+
+.resume-title {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #1E1E1E;
+    margin-bottom: 4px;
+}
+
+.resume-date {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+    color: #B6B6B6;
+    display: block;
+    margin-top: 2px;
+}
+
+.resume-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #6B7280;
+    margin-bottom: 16px;
+}
+
+.ats-score b {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22.05px;
+    color: #006894;
+    display: block;
+    text-align: right;
+    margin: 0;
+}
+
+.ats-score {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: -20px;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 13.78px;
+    letter-spacing: 0.46px;
+    text-transform: uppercase;
+    color: #555555;
+}
+
+.resume-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.resume-buttons button {
+    background: #fff;
+    height: 38px;
+    border-radius: 8px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.preview-icon {
+    width: 22.67px;
+    height: 12px;
+    color: #555555;
+    flex-shrink: 0;
+    margin-right: -5px;
+}
+
+.btn {
+    width: 161px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 9.49px 16.87px;
+    background: #006894;
+    border: 1px solid rgba(182, 182, 182, 0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+    transition: all 0.2s ease;
+}
+
+.download {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9.49px 16.87px;
+    gap: 4px;
+    background: #006894 !important;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 3.37px 13.49px rgba(11, 21, 44, 0.06),
+        0px 0.84px 1.69px rgba(11, 21, 44, 0.04);
+    transition: all 0.2s ease;
+}
+
+.download:hover {
+    background: #00597D !important;
+}
+
+.download-icon {
+    width: 10.67px;
+    height: 10.67px;
+    font-size: 10.67px;
+    color: #FFFFFF;
+    flex-shrink: 0;
+}
+
+.more {
+    width: 24px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10.25px 4px;
+    gap: 8px;
+    background: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.more:hover {
+    background: #F5F5F5;
+}
+
+.more-icon {
+    font-size: 15px;
+    color: #555555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.menu-itm {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 6px 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.menu-itm:hover {
+    background: #F8FAFC;
+}
+
+.menu-text {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18.48px;
+    color: #555555;
+}
+
+.delete-text {
+    color: #FF4A4A;
+}
+
+.icon {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(85, 85, 85, 0.05);
+    border: 0.17px solid rgba(182, 182, 182, 0.25);
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.edit-icon,
+.duplicate-icon,
+.rename-icon,
+.delete-icon {
+    width: 12px;
+    height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #B6B6B640;
+    border-radius: 8px;
+    color: #555555;
+    box-shadow: 0px 4px 10px rgba(11, 21, 44, 0.06),
+        0px 1px 2px rgba(11, 21, 44, 0.04);
+    flex-shrink: 0;
+}
+
+.delete-icon {
+    background: #FFF1F1;
+    color: #FF4A4A;
+}
+
+.resume-menu {
+    position: absolute;
+    top: calc(342px + 8px);
+    right: 0;
+    width: 191px;
+    height: 156px;
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    z-index: 100;
+}
+
+.resume-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.resume-progress {
+    width: 100%;
+    height: 4px;
+    background: #E7E7F2;
+    border-radius: 999px;
+    margin-top: 18px;
+    overflow: hidden;
+}
+
+.resume-progress-fill {
+    width: 95%;
+    height: 100%;
+    background: #006894;
+    border-radius: 999px;
+}
+
+.resume-progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.progress-text {
+    font-size: 12px;
+    font-weight: 400;
+    color: #555555;
+    line-height: 16px;
+}
+
+.continue-button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: none;
+    background: transparent;
+    color: #006894;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+}
+
+.arrow {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.create-card:hover {
+    border-color: #0078D4;
+    transform: translateY(-5px);
+}
+
+.resume-buttons button:hover {
+    background: #F8FAFC;
+}
+
+.download:hover {
+    background: #005FB8 !important;
+}
+
+.search-box:focus-within {
+    border-color: #0078D4;
+}
+
+.sort-btn:hover {
+    color: #0078D4;
+}
+
+/* ==============================================================
+   RESPONSIVE – Tablet & Mobile (fixed widths removed on small screens)
+   ============================================================== */
+@media (max-width: 1200px) {
+    .resume-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .resume-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .resume-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .resume-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Center single column cards */
+    .resume-grid>* {
+        justify-self: center;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .resume-top h2 {
+        margin-left: 0;
+        font-size: 15px;
+    }
+
+    .search-box {
+        padding-left: 16px;
+        width: 100%;
+    }
+
+    .sort-btn {
+        margin: 0;
+    }
+
+    /* Make cards fluid while maintaining design */
+    .create-card,
+    .resume-card {
+        width: 100% !important;
+        max-width: 360px;
+        height: auto !important;
+        min-height: auto;
+        margin-left: 0 !important;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .resume-image {
+        width: 100% !important;
+        height: auto;
+        padding: 20px 10px 0;
+    }
+
+    .resume-image img {
+        width: 100% !important;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .btn {
+        width: auto;
+        flex: 1;
+    }
+
+    .download {
+        padding: 0 12px;
+    }
+
+    .resume-menu {
+        top: auto;
+        bottom: calc(100% + 8px);
+        /* Better placement on mobile */
+        left: 0;
+        right: auto;
+        width: 100%;
+    }
+}

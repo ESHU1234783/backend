@@ -1,0 +1,410 @@
+/* =====================================================
+   TEMPLATE PAGE
+===================================================== */
+.template-page {
+  width: auto;
+  min-height: 100dvh;
+  align-items: center;
+  vertical-align: middle;
+}
+
+/* =====================================================
+   TEMPLATE SECTION
+===================================================== */
+.template-section {
+  width: 300px;
+  height: 386.44px;
+  background: #ffffff;
+  border: 1px solid #D9D9D9;
+  border-radius: 12px;
+  box-shadow: none;
+  margin: 24px auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.template-section:hover {
+  border-color: #BFC5D2;
+}
+
+.template-section.active {
+  border: 1.5px solid #006894;
+  box-shadow: 0px 0px 0px 2px rgba(0, 120, 212, 0.10),
+              0px 6px 18px rgba(0, 120, 212, 0.18);
+}
+
+.template-top {
+  height: 238px;
+  background: #f1f1f1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0;
+}
+
+.template-select {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #D9D9D9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  transition: .25s;
+}
+
+.template-dot {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 1.65px solid #B6B6B6;
+  background: #006894;
+}
+
+.template-section.active .template-select {
+  background: #006894;
+  border-color: #006894;
+}
+
+.template-image {
+  width: 298px;
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.template-image img {
+  width: 284.91px;
+  height: 225px;
+  display: block;
+  margin-top: 15px;
+  margin-left: 7px;
+}
+
+.template-bottom {
+  width: 274.45px;
+  height: 132.15px;
+  margin: 10px;
+  padding: 15px;
+  background: #FFFFFF;
+  border: 0.82px solid #c4c6ce;
+  border-radius: 9.89px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 2;
+}
+
+.template-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.template-title {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 25.71px;
+  letter-spacing: -0.2px;
+}
+
+.ats-tag {
+  padding: 6px 12px;
+  background: #EAF2FF;
+  color: #004DE1;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.41px;
+  line-height: 12.36px;
+  border-radius: 6px;
+}
+
+.template-description {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19.78px;
+  color: #4B5563;
+}
+
+.template-action {
+  width: 300px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.template-action .btn {
+  min-width: 300px;
+}
+
+/* =====================================================
+   GLOBAL BUTTON STYLES
+===================================================== */
+.btn {
+  width: 183.67px;
+  height: 33.25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9.17px 18.34px;
+  gap: 4.59px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 13.76px;
+  transition: all .25s ease;
+}
+
+.btn-primary {
+  background: #006894;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #006894;
+}
+
+.btn-disabled {
+  background: #E5E7EB;
+  color: #B6B6B6;
+  cursor: not-allowed;
+}
+
+.btn:disabled {
+  background: #b9bfca;
+  color: #9CA3AF;
+  border: none;
+  opacity: .65;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   RESUME START PAGE
+===================================================== */
+.resume-start-page {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 25px 10px 40px;
+}
+
+.resume-start-grid {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+/* =====================================================
+   START CARD
+===================================================== */
+.start-card {
+  width: 443px;
+  height: 317px;
+  padding: 38px 25px 25px;
+  border-radius: 16px;
+  border: 1px solid #E5E7EB;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
+}
+
+.start-card:hover {
+  transform: translateY(-4px);
+}
+
+.start-card h3 {
+  width: 157px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 18px;
+  color: #111827;
+}
+
+.start-card p {
+  width: 321.42px;
+  height: 38px;
+  font-weight: 400;
+  line-height: 19px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #6B7280;
+}
+
+.start-card .btn {
+  width: 183.67px;
+  height: 33.25px;
+  margin-top: auto;
+}
+
+.start-card .btn-primary {
+  width: 183.67px;
+}
+
+/* =====================================================
+   START ICON
+===================================================== */
+.start-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #EEF2F7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  color: #6B7280;
+}
+
+/* =====================================================
+   UPLOAD CARD
+===================================================== */
+.upload-card {
+  width: 443px;
+  height: 317px;
+  padding: 36px 25px 25px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #010613 0%, #0E2E86 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 3px 5px rgba(0,0,0,.10), 0 8px 12px rgba(0,0,0,.10);
+}
+
+.upload-card .start-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.upload-card h3 {
+  width: 171px;
+  height: 19px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.upload-card p {
+  width: 334.08px;
+  height: 38px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 19px;
+  color: #B1C8E9;
+  margin-bottom: 18px;
+}
+
+/* =====================================================
+   UPLOAD BOX
+===================================================== */
+.upload-box {
+  width: 392.67px;
+  height: 87.08px;
+  border: 1.58px dashed rgba(255, 255, 255, .35);
+  border-radius: 9.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.upload-box:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, .04);
+}
+
+.upload-box svg {
+  font-size: 18px;
+  color: #fff;
+}
+
+.upload-box span {
+  font-size: 14px;
+  line-height: 19px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.upload-box strong {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.upload-box small {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 10.29px;
+  letter-spacing: 0.21px;
+  width: 259px;
+  height: 11px;
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* =====================================================
+   PAGE HEADER (shared)
+===================================================== */
+.page-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  color: #1E293B;
+  margin-bottom: 10px;
+}
+
+.page-description {
+  width: 672px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #6B7280;
+  text-align: center;
+}
