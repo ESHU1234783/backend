@@ -6,7 +6,7 @@ import ResumeTemplate from "./pages/ResumeTemplate";
 
 import ResumeStart from "./pages/ResumeStart";
 
-import MyResume from "./pages/MyResume";
+// import MyResume from "./pages/MyResume";
 
 import Personal from "./pages/Personal";
 
@@ -40,10 +40,10 @@ function App() {
 
         {/* My Resume */}
 
-        <Route
+        {/* <Route
           path="/my-resume"
           element={<MyResume />}
-        />
+        /> */}
 
         {/* Resume Start */}
 
