@@ -6,17 +6,21 @@ import resumeroute from "./routes/resume.js";
 import cors from "cors"
 
 dotenv.config();
-const app=express();
+
+const PORT = process.env.PORT || 8000;
+
+const app = express();
+
 app.use(cors());
 app.use(express.json());
 
-app.use("/api",route);
+app.use("/api", route);
 app.use("/api", resumeroute);
 
 
-//connection using port saved in .env file
+// Database connection
 DB();
-const PORT= process.env.PORT || 3000;
-app.listen(PORT,() =>{
-    console.log(`server is running on ${PORT}`);
+
+app.listen(PORT, () => {
+  console.log(`server is running on ${PORT}`);
 });
