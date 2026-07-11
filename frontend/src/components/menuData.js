@@ -7,7 +7,7 @@ export const menuData = [
     {
         id: 1,
         title: "Resume Builder",
-        path:"/resume-builder",
+        path: "/resume-builder",
         icon: FiFileText,
         dropdown: true,
 
@@ -17,12 +17,17 @@ export const menuData = [
                 id: 1,
                 title: "Create Resume",
                 path: "/resume-builder",
+                activePaths: [
+                    "/resume-builder",
+                    "/resume-builder/start",
+                    "/resume-builder/personal-info",
+                ],
             },
 
             {
                 id: 2,
                 title: "My Resume",
-                path: "/resume-builder/my-resume",
+                path: "/my-resume",
             },
 
         ],

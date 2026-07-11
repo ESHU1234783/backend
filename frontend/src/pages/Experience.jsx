@@ -286,6 +286,11 @@ teams.
                         >
                             + Add Another Experience
                         </button>
+                        {/* Form Footer */}
+                        <FormFooter
+                            onBack={() => navigate(-1)}
+                            onContinue={() => navigate("/education")}
+                        />
 
                     </div>
 

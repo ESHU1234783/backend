@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import logo from "../assets/images/logo.png";
 import profileImage from "../assets/images/profile.png";
@@ -18,8 +18,11 @@ import menuData from "./menuData";
 
 export default function Sidebar({ sidebarOpen, toggleSidebar }) {
 
+    const location = useLocation();
+
     const [open, setOpen] = useState("Resume Builder");
     const [profileOpen, setProfileOpen] = useState(false);
+
 
     return (
 
@@ -111,33 +114,39 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
 
                                                 {
 
-                                                    item.children.map((child) => (
+                                                    item.children.map((child) => {
 
-                                                        <NavLink
+                                                        return (
+                                                            <NavLink
+                                                                key={child.id}
+                                                                to={child.path}
+                                                                className={() => {
 
-                                                            key={child.id}
+                                                                    let isChildActive = false;
 
-                                                            to={child.path}
+                                                                    if (child.title === "Create Resume") {
 
-                                                            end
+                                                                        isChildActive =
+                                                                            location.pathname === "/resume-builder" ||
+                                                                            location.pathname === "/resume-builder/start" ||
+                                                                            location.pathname === "/resume-builder/personal-info";
 
-                                                            className={({ isActive }) =>
+                                                                    } else if (child.title === "My Resume") {
 
-                                                                isActive
+                                                                        isChildActive =
+                                                                            location.pathname === "/my-resume";
 
-                                                                    ? "submenu-item active"
+                                                                    }
 
-                                                                    : "submenu-item"
-
-                                                            }
-
-                                                        >
-
-                                                            {child.title}
-
-                                                        </NavLink>
-
-                                                    ))
+                                                                    return isChildActive
+                                                                        ? "submenu-item active"
+                                                                        : "submenu-item";
+                                                                }}
+                                                            >
+                                                                {child.title}
+                                                            </NavLink>
+                                                        );
+                                                    })
 
                                                 }
 

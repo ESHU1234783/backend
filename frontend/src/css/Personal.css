@@ -20,6 +20,53 @@
     padding: 40px;
 }
 
+<<<<<<< HEAD:frontend/src/css/Personal.css
+=======
+/* ==========================================
+   Content Wrapper
+========================================== */
+
+.personal-content {
+    max-width: 1220px;
+    margin: 0 auto;
+}
+
+/* Step Section */
+
+.step-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* ==========================================
+   Step Count
+========================================== */
+
+.step-count {
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #006894;
+}
+
+/* ==========================================
+   Page Title
+========================================== */
+
+.page-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: #1E1E1E;
+}
+
+>>>>>>> 9fec511055fa493e6d74321519ebfb45c209d09f:src/css/Personal.css
 
 /* ==========================================
    Main Layout

@@ -6,6 +6,8 @@ import ResumeTemplate from "./pages/ResumeTemplate";
 
 import ResumeStart from "./pages/ResumeStart";
 
+import MyResume from "./pages/MyResume";
+
 import Personal from "./pages/Personal";
 
 import cors from "cors"
@@ -26,7 +28,7 @@ function App() {
 
         <Route
           path="/"
-          element={<Navigate to="/resume-builder" replace />}
+          element={<Navigate to="/" replace />}
         />
 
         {/* Resume Builder */}
@@ -39,19 +41,19 @@ function App() {
         {/* My Resume */}
 
         <Route
-          path="/resume-builder/my-resume"
-          element={<h1>My Resume</h1>}
+          path="/my-resume"
+          element={<MyResume />}
         />
 
         {/* Resume Start */}
 
         <Route
-          path="/resume-builder/start"
+          path="/start"
           element={<ResumeStart />}
         />
 
         <Route
-          path="/resume-builder/personal-info"
+          path="/personal"
           element={<Personal />}
         />
 
@@ -65,10 +67,9 @@ function App() {
           element={<Education />}
         />
 
-
       </Routes>
 
-    </DefaultLayout>
+    </DefaultLayout >
 
   );
 }

@@ -26,7 +26,7 @@ export default function ResumeTemplate() {
 
     if (!selectedTemplate) return;
 
-    navigate("/resume-builder/start");
+    navigate("/start");
 
   };
 

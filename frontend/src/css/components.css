@@ -1,6 +1,4 @@
-/* =====================================================
-   SIDEBAR
-===================================================== */
+/* ======================== SIDEBAR (unchanged) ======================== */
 .sidebar {
     position: fixed;
     left: 0;
@@ -9,7 +7,6 @@
     height: 100dvh;
     background: #FFFFFF;
     border-right: 1px solid var(--border);
-    /* Figma Shadow */
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
@@ -47,9 +44,6 @@
     margin-right: 20px;
 }
 
-/* =====================================================
-   CLOSE SIDEBAR BUTTON
-===================================================== */
 .close-sidebar-btn {
     position: absolute;
     right: 0;
@@ -76,9 +70,6 @@
     background: #F1F5F9;
 }
 
-/* =====================================================
-   MENU
-===================================================== */
 .sidebar-menu {
     display: flex;
     flex-direction: column;
@@ -117,9 +108,6 @@
     color: #fff;
 }
 
-/* =====================================================
-   SUBMENU
-===================================================== */
 .submenu {
     margin-left: 22px;
     margin-top: 6px;
@@ -161,9 +149,6 @@
     border-radius: 4px;
 }
 
-/* =====================================================
-   PROFILE
-===================================================== */
 .sidebar-bottom {
     margin-top: auto;
 }
@@ -182,7 +167,6 @@
     justify-content: space-between;
     align-items: center;
     margin-left: -13px;
-    /* cursor: pointer; */
     transition: .25s;
 }
 
@@ -293,9 +277,6 @@
     font-size: 18px;
 }
 
-/* =====================================================
-   PROFILE DROPDOWN
-===================================================== */
 .profile-dropdown {
     margin-top: 10px;
     border: 1px solid var(--border);
@@ -324,14 +305,11 @@
     color: var(--danger);
 }
 
-/* =====================================================
-   TOPBAR
-===================================================== */
+/* ======================== TOPBAR (revised) ======================== */
+/* Remove fixed positioning and left offset. Let it flow inside main-content */
 .topbar {
     height: 80px;
-    width: auto;
-    top: 20px;
-    left: 329px;
+    width: auto;                    /* take full width of its container */
     background: #FFFFFF;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
     border-bottom: 1px solid var(--border);
@@ -339,9 +317,9 @@
     align-items: center;
     gap: 18px;
     padding: 0 28px;
-   margin: 10px 10px 1px 55px;
+    margin: 10px 20px 1px 0;     
     border-radius: 8px;
-
+    box-sizing: border-box;      
 }
 
 .mobile-menu-btn {
@@ -358,9 +336,16 @@
     font-size: 22px;
 }
 
-/* =====================================================
-   BUTTONS
-===================================================== */
+/* ======================== MAIN CONTENT WRAPPER ======================== */
+/* This ensures all page content (topbar + pages) is offset from the fixed sidebar */
+.main-content {
+    margin-left: calc(277px + 15px);  /* sidebar width + 15px gap */
+    min-height: 100vh;
+    box-sizing: border-box;
+    transition: margin-left 0.35s ease;   /* smooth when sidebar toggles on mobile */
+}
+
+/* ======================== BUTTONS (unchanged) ======================== */
 .btn {
     height: 46px;
     padding: 0 24px;
@@ -388,9 +373,7 @@
     background: #fff;
 }
 
-/* =====================================================
-   CARDS
-===================================================== */
+/* ======================== CARDS (unchanged) ======================== */
 .card {
     background: #fff;
     border-radius: 16px;
@@ -412,9 +395,7 @@
     border-top: 1px solid var(--border);
 }
 
-/* =====================================================
-   FORMS
-===================================================== */
+/* ======================== FORMS (unchanged) ======================== */
 .form-group {
     display: flex;
     flex-direction: column;
@@ -443,4 +424,259 @@ textarea.form-control {
     min-height: 140px;
     resize: none;
     padding: 14px;
+}
+
+/* ======================== RESPONSIVE BREAKPOINTS (updated) ======================== */
+@media (max-width: 1400px) {
+    .container {
+        max-width: 1200px;
+    }
+
+    .resume-content {
+        grid-template-columns: 380px 1fr;
+    }
+}
+
+@media (max-width: 1200px) {
+    :root {
+        --sidebar-width: 220px;
+    }
+
+    .main-content {
+        margin-left: calc(220px + 15px);  /* adjusted sidebar width + gap */
+    }
+
+    .page-content {
+        padding: 24px;
+    }
+
+    .template-card {
+        width: 250px;
+    }
+
+    .resume-content {
+        grid-template-columns: 340px 1fr;
+    }
+}
+
+/* Tablet: sidebar becomes overlay, main-content takes full width */
+@media (max-width: 992px) {
+    :root {
+        --sidebar-width: 280px;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .sidebar {
+        left: -100%;
+        width: 280px;
+        transition: .35s;
+        z-index: 1200;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .close-sidebar-btn {
+        display: flex;
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .45);
+        z-index: 1100;
+    }
+
+    /* On tablet/mobile, main content hugs the left edge */
+    .main-content {
+        margin-left: 0 !important;
+    }
+
+    .page-content {
+        padding: 20px;
+    }
+
+    .topbar {
+        padding: 0 18px;
+        margin: 10px 10px 1px 10px; /* maintain original horizontal margin */
+    }
+
+    .resume-content {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-preview {
+        order: -1;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 28px;
+    }
+
+    .page-description {
+        font-size: 14px;
+    }
+
+    .page-content {
+        padding: 18px;
+    }
+
+    .topbar {
+        height: 64px;
+        padding: 0 16px;
+    }
+
+    .topbar h2 {
+        font-size: 18px;
+    }
+
+    .sidebar {
+        width: 260px;
+    }
+
+    .template-list {
+        justify-content: center;
+    }
+
+    .template-card {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .resume-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-name {
+        font-size: 13px;
+    }
+
+    .profile-progress {
+        font-size: 11px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-title {
+        font-size: 24px;
+    }
+
+    .page-description {
+        font-size: 13px;
+    }
+
+    .topbar {
+        padding: 0 14px;
+    }
+
+    .topbar h2 {
+        font-size: 16px;
+    }
+
+    .sidebar {
+        width: 240px;
+    }
+
+    .template-card {
+        max-width: 100%;
+    }
+
+    .template-image {
+        height: 260px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .resume-preview {
+        padding: 18px;
+    }
+
+    .preview-name {
+        font-size: 24px;
+    }
+
+    .preview-role {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .page-content {
+        padding: 14px;
+    }
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .profile-avatar {
+        width: 38px;
+        height: 38px;
+    }
+
+    .profile-name {
+        font-size: 12px;
+    }
+
+    .profile-progress {
+        display: none;
+    }
+
+    .topbar {
+        height: 60px;
+    }
+
+    .topbar h2 {
+        font-size: 15px;
+    }
+
+    .btn {
+        height: 42px;
+        font-size: 14px;
+    }
+}
+
+/* Resume start section responsive tweaks */
+@media(max-width:992px) {
+    .resume-start-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:768px) {
+    .start-card {
+        padding: 30px 22px;
+    }
+
+    .start-card h3 {
+        font-size: 20px;
+    }
+
+    .upload-box {
+        min-height: 130px;
+    }
 }
