@@ -11,7 +11,7 @@ const userschema = new mongoose.Schema({
     jobTitle: {
         type: String,
         required: true,
-        maxlength: 20
+        
     },
 
     email: {
@@ -47,7 +47,7 @@ const userschema = new mongoose.Schema({
         role: String,
         start: Date,
         end: Date,
-        accomplishment: String
+        accomplishments: String
     }
 ],
 

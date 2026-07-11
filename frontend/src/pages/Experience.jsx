@@ -8,6 +8,8 @@ import redoIcon from "../assets/uil_redo.png";
 import ResumeHeader from "../components/ResumeHeader";
 import FormFooter from "../components/FormFooter";
 import AIButton from "../components/AIButton";
+import experience from "../service/exp.js"
+const { id } = useParams();
 
 
 const Experience = () => {
@@ -26,7 +28,7 @@ const Experience = () => {
             end: "Present",
             currentlyWorking: true,
             accomplishments:
-`• Led redesign of the issue triage flow, cutting time-to-action by
+                `• Led redesign of the issue triage flow, cutting time-to-action by
 38%.
 • Shipped Linear AI suggestions used by 60% of weekly active
 teams.
@@ -252,16 +254,16 @@ teams.
                                             placeholder="Describe your achievements..."
                                         />
 
-                                          {/* Yahan Experience ka form aayega */}
-                                    <AIButton
-                                        leftButton={leftButton}
-                                        showImproveAI={showImproveAI}
-                                        aiIcon={aiIcon}
-                                        redoIcon={redoIcon}
-                                        handleImproveSummary={() => handleImproveAccomplishments(index)}
-                                        handleKeepOriginal={() => handleKeepOriginal(index)}
-                                        handleKeepImproved={handleKeepImproved}
-                                    />
+                                        {/* Yahan Experience ka form aayega */}
+                                        <AIButton
+                                            leftButton={leftButton}
+                                            showImproveAI={showImproveAI}
+                                            aiIcon={aiIcon}
+                                            redoIcon={redoIcon}
+                                            handleImproveSummary={() => handleImproveAccomplishments(index)}
+                                            handleKeepOriginal={() => handleKeepOriginal(index)}
+                                            handleKeepImproved={handleKeepImproved}
+                                        />
 
                                     </div>
                                 </div>
@@ -291,7 +293,7 @@ teams.
                     {/* Form Footer */}
                     <FormFooter
                         onBack={() => navigate("/resume-builder/personal-info")}
-                        onContinue={() => navigate("/resume-builder/education")}
+                        onContinue={experience}
                     />
 
                 </div>

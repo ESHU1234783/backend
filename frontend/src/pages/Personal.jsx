@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import "../css/Personal.css";
 import aiIcon from "../assets/SVG.png";
 import redoIcon from "../assets/uil_redo.png";
-import createProfile from "../service/fetchcall.js"
+import createProfile from "../service/crresume.js"
+import experience from "../service/exp.js"
 import ResumeHeader from "../components/ResumeHeader";
 import FormFooter from "../components/FormFooter";
 import AIButton from "../components/AIButton";
@@ -18,6 +19,7 @@ const Personal = () => {
     const [showImproveAI, setShowImproveAI] = useState(true);
     const [leftButton, setLeftButton] = useState("");
     const [originalSummary, setOriginalSummary] = useState("");
+    const [resumeId, setResumeId] = useState(null);
 
     // Handle form input changes
     const handleChange = (event) => {
@@ -204,7 +206,10 @@ const Personal = () => {
                 {/* Form Footer */}
                 <FormFooter
                     onBack={() => navigate(-1)}
-                    onContinue={() => navigate("/resume-builder/experience")}
+                    onContinue={async ()=>{await createProfile(formData);
+                    setResumeId(response._id);
+                    navigate("/resume-builder/experience");}
+                    }
                 />
             </div>
 

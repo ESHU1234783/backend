@@ -11,6 +11,7 @@ const createProfile = async (formData) => {
         });
 
         return await response.json();
+        
 
     } catch (err) {
         console.log(err);
